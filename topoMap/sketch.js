@@ -349,7 +349,8 @@ function draw(){
     houseY = randRangeInt(50, mapScale*myHeight - 50);
     playerGraphics = createGraphics(mapScale*myWidth, mapScale*myHeight);
 
-    let numPeople = myWidth*myHeight/10000;
+    let numPeople = myWidth*myHeight/8000;
+    console.log(numPeople);
     for(let i = 0; i < numPeople; i++){
       let x, y;
       do{
