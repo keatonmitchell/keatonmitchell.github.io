@@ -89,7 +89,7 @@ let runtime = 0;
 
 function preload(){
   // keyImage = loadImage("MapKey.png");
-  compassImage = loadImage("compass.png");
+  compassImage = loadImage("topoMap/compass.png");
 }
 
 function setup(){
