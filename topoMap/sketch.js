@@ -364,6 +364,22 @@ function draw(){
     }
 
     for(let i = 0; i < 1; i++){
+      
+      x = randRangeInt(50, mapScale*myWidth  - 50);
+      y = randRangeInt(50, mapScale*myHeight - 50);
+
+      playerGraphics.noStroke()
+      playerGraphics.fill(227, 132, 53);
+      playerGraphics.rect(x, y, 20, 10);
+      playerGraphics.fill(161, 86, 23);
+      playerGraphics.rect(x, y+10, 20, 10);
+      playerGraphics.noFill();
+      playerGraphics.stroke(0);
+      playerGraphics.strokeWeight(1);
+      playerGraphics.rect(x, y, 20, 20);
+    }
+
+    for(let i = 0; i < 1; i++){
       let x, y;
       do{
         x = randRangeInt(myWidth/2, myWidth - 50);
@@ -488,7 +504,6 @@ function draw(){
     
     newCanvas.image(groundGraphics, 0, 0);
     newCanvas.image(topoGraphics, 0, 0);
-    newCanvas.image(playerGraphics, 0, 0);
 
     lakeHeightIndex++;
     establishNextRuntime = true;
@@ -674,12 +689,8 @@ function draw(){
       }
     }
 
-    newCanvas.image(topoGraphics, 0, 0);
-
-    push();
-    newCanvas.tint(255, 70);
+    newCanvas.image(topoGraphics, 0, 0);    
     newCanvas.image(playerGraphics, 0, 0);
-    pop();
 
 
     image(newCanvas, 0, 0);
