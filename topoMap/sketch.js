@@ -32,6 +32,8 @@ let lakeScale = 8;
 let lakeHeightConstant = 25;
 let previousLakeHeight = 0;
 
+let houseX, houseY;
+
 let peopleX = [];
 let peopleY = [];
 
@@ -342,6 +344,9 @@ function draw(){
     image(topoGraphics, 0, 0);
   }
   else if (frameCount === 60){
+    
+    houseX = randRangeInt(50, mapScale*myWidth  - 50);
+    houseY = randRangeInt(50, mapScale*myHeight - 50);
     playerGraphics = createGraphics(mapScale*myWidth, mapScale*myHeight);
 
     for(let i = 0; i < 10; i++){
@@ -361,22 +366,6 @@ function draw(){
       playerGraphics.stroke(0);
       playerGraphics.strokeWeight(1);
       playerGraphics.circle(x, y, 6);
-    }
-
-    for(let i = 0; i < 1; i++){
-      
-      x = randRangeInt(50, mapScale*myWidth  - 50);
-      y = randRangeInt(50, mapScale*myHeight - 50);
-
-      playerGraphics.noStroke()
-      playerGraphics.fill(227, 132, 53);
-      playerGraphics.rect(x, y, 20, 10);
-      playerGraphics.fill(161, 86, 23);
-      playerGraphics.rect(x, y+10, 20, 10);
-      playerGraphics.noFill();
-      playerGraphics.stroke(0);
-      playerGraphics.strokeWeight(1);
-      playerGraphics.rect(x, y, 20, 20);
     }
 
     for(let i = 0; i < 1; i++){
@@ -504,6 +493,7 @@ function draw(){
     
     newCanvas.image(groundGraphics, 0, 0);
     newCanvas.image(topoGraphics, 0, 0);
+    newCanvas.image(playerGraphics, 0, 0);
 
     lakeHeightIndex++;
     establishNextRuntime = true;
@@ -689,11 +679,27 @@ function draw(){
       }
     }
 
-    newCanvas.image(topoGraphics, 0, 0);    
+    newCanvas.image(topoGraphics, 0, 0);
+
+    newCanvas.push();
+    newCanvas.tint(255, 70);
     newCanvas.image(playerGraphics, 0, 0);
+    newCanvas.pop();
 
 
     image(newCanvas, 0, 0);
+    
+
+    noStroke()
+    fill(227, 132, 53);
+    rect(houseX, houseY, 20, 10);
+    fill(161, 86, 23);
+    rect(houseX, houseY+10, 20, 10);
+    noFill();
+    stroke(0);
+    strokeWeight(1);
+    rect(houseX, houseY, 20, 20);
+
     image(compassImage, width - compassImage.width - 20, 20)
 
     finalizedGraphics.push(newCanvas);
