@@ -1,5 +1,5 @@
 let seed;
-seed = 245752758
+// seed = 245752758
 // seed = 203858128
 // seed = 170760328
 // seed = 820469067 a glitchy one if you want to fix it
@@ -26,7 +26,7 @@ let lakeHeightIndex = -1;
 
 let runtimeForNextDisplay = 0;
 let establishNextRuntime = false;
-let displayTimeIncrement = 2000;
+let displayTimeIncrement = 1200;
 
 let lakeScale = 8;
 let lakeHeightConstant = 25;
@@ -91,7 +91,7 @@ let runtime = 0;
 
 function preload(){
   // keyImage = loadImage("MapKey.png");
-  compassImage = loadImage("topoMap/compass.png");
+  compassImage = loadImage("compass.png");
 }
 
 function setup(){
@@ -105,6 +105,7 @@ function setup(){
 }
 
 function draw(){
+
   frameCount++;
   if(deltaTime > 50) console.log(frameCount, deltaTime);
   previousDeltaTime = deltaTime;
@@ -117,9 +118,9 @@ function draw(){
     establishNextRuntime = false;
   }
 
-  if(frameCount === 5){
-    
-    // image(keyImage, 20, myHeight*mapScale + 20);
+  if(frameCount === 1){
+    textSize(30);
+    text("loading...", 20, 40);
   }
   if(frameCount === 10){
     for(let i = 0; i <= myWidth; i++){
