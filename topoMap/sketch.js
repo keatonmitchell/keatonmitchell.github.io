@@ -358,9 +358,9 @@ function draw(){
         x = randRangeInt(50, mapScale*myWidth  - 50);
         y = randRangeInt(50, mapScale*myHeight - 50);
 
-      } while (groundPoints[Math.floor(x)][Math.floor(y)] < 50)
+      } while (groundPoints[Math.floor(x)][Math.floor(y)] < 20)
 
-      if(randRange(0, 1) > 0.5){
+      if(groundPoints[Math.floor(x)][Math.floor(y)] > 60){
         playerGraphics.fill(0, 200, 0);
       } else {
         playerGraphics.fill(255, 30, 30);
